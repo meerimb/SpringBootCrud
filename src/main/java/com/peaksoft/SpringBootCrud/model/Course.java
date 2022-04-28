@@ -9,28 +9,26 @@ import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Getter
 @Setter
 @Entity
-@Table(name = "teacher")
-public class Teacher {
+@Table(name = "course")
+public class Course {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "surname")
-    private String surname;
-
-    @Column(name = "email")
-    private String email;
+    private Long id;
+    private String courseName;
+    private int duration;
 
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
 
-
+    @Override
+    public String toString() {
+        return getCourseName();
+    }
 }

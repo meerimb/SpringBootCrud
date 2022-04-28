@@ -1,10 +1,9 @@
 package com.peaksoft.SpringBootCrud.repository;
 
-import com.peaksoft.SpringBootCrud.model.Employee;
+import com.peaksoft.SpringBootCrud.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface CompanyRepository extends JpaRepository<Company, Long> {
 }
-

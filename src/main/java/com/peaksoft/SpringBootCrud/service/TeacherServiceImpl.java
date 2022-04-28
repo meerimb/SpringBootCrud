@@ -2,6 +2,7 @@ package com.peaksoft.SpringBootCrud.service;
 
 import com.peaksoft.SpringBootCrud.model.Teacher;
 import com.peaksoft.SpringBootCrud.repository.TeacherRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class TeacherServiceImpl implements TeacherService{
-   @Autowired
-   private TeacherRepository teacherRepository;
+
+   private final TeacherRepository teacherRepository;
 
     @Override
     public List<Teacher> getAllTeachers() {

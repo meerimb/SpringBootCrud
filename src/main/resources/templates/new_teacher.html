@@ -13,20 +13,22 @@
     <hr>
     <h2>Save Teacher</h2>
 
-    <!--/*@thymesVar id="teacher" type=""*/-->
-    <form action="#" th:action="@{/saveTeacher}" th:object="${teacher}" method="POST">
+    <form action="#" th:action="@{/index_teacher/saveTeacher}" th:object="${teacher}" method="POST">
+<!--        <input type="text" th:field="*{id}" placeholder="Teacher ID" class="form-control mb-4 col-4">-->
         <input type="text" th:field="*{name}" placeholder="Teacher First Name" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{surname}" placeholder="Teacher Last Name" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{email}" placeholder="Teacher Email" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{course}" placeholder="Course Id" class="form-control mb-4 col-4">
 
         <button type="submit" class="btn btn-info col-2"> Save Teacher</button>
     </form>
 
     <hr>
 
-    <a th:href="@{/}"> Back to Teacher List</a>
+    <a th:href="@{/index_teacher}"> Back to Teacher List</a><br><br>
+    <a th:href="@{/main_page}"> Back to Main Page</a>
 </div>
 </body>
 

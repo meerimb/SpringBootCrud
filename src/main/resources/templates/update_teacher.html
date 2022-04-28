@@ -14,9 +14,7 @@
     <hr>
     <h2>Update Teacher</h2>
 
-    <!--/*@thymesVar id="teacher" type=""*/-->
-    <form action="#" th:action="@{/saveTeacher}" th:object="${teacher}" method="POST">
-
+    <form action="#" th:action="@{/index_teacher/saveTeacher}" th:object="${teacher}" method="POST">
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
 
@@ -25,14 +23,15 @@
         <input type="text" th:field="*{surname}" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{course}" class="form-control mb-4 col-4">
 
         <button type="submit" class="btn btn-info col-2"> Update Teacher</button>
     </form>
 
     <hr>
 
-    <a th:href="@{/}"> Back to Teachers List</a>
+    <a th:href="@{/index_teacher}"> Back to Teacher List</a><br><br>
+    <a th:href="@{/main_page}"> Back to Main Page</a>
 </div>
 </body>
-
 </html>

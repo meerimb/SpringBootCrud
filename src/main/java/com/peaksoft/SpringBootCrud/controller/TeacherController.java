@@ -5,21 +5,24 @@ import com.peaksoft.SpringBootCrud.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-
+@Controller
+@RequestMapping("/index_teacher")
 public class TeacherController {
- @Autowired
-private TeacherService teacherService;
 
-    // display list of employees
-    @GetMapping("/")
+    private TeacherService teacherService;
+
+   @Autowired
+   public TeacherController(TeacherService teacherService){
+     this.teacherService=teacherService;
+ }
+
+    // display list of teachers
+    @GetMapping
     public String viewHomePage(Model model) {
         model.addAttribute("listTeachers", teacherService.getAllTeachers());
-        return "index";
+        return "/index_teacher";
     }
 
     @GetMapping("/showNewTeacherForm")
@@ -27,14 +30,14 @@ private TeacherService teacherService;
         // create model attribute to bind form data
         Teacher teacher=new Teacher();
         model.addAttribute("teacher", teacher);
-        return "new_teacher";
+        return "/new_teacher";
     }
 
     @PostMapping("/saveTeacher")
     public String saveTeacher(@ModelAttribute("teacher") Teacher teacher) {
         // save teacher to database
         teacherService.saveTeacher(teacher);
-        return "redirect:/";
+        return "redirect:/index_teacher";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -45,7 +48,7 @@ private TeacherService teacherService;
 
         // set teacher as a model attribute to pre-populate the form
         model.addAttribute("teacher", teacher);
-        return "update_teacher";
+        return "/update_teacher";
     }
 
     @GetMapping("/deleteTeacher/{id}")
@@ -53,6 +56,6 @@ private TeacherService teacherService;
 
         // call delete teacher method
         this.teacherService.deleteTeacherById(id);
-        return "redirect:/";
+        return "redirect:/index_teacher";
     }
 }
