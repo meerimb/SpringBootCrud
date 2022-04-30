@@ -41,10 +41,4 @@ public class GroupServiceImpl implements GroupService{
         this.groupRepository.deleteById(id);
     }
 
-//    @Override
-//    public Group update(Group group) {
-//        groupRepository.save(group);
-//        return group;
-//
-//    }
 }

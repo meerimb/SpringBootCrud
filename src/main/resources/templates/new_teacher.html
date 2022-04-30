@@ -14,7 +14,7 @@
     <h2>Save Teacher</h2>
 
     <form action="#" th:action="@{/index_teacher/saveTeacher}" th:object="${teacher}" method="POST">
-<!--        <input type="text" th:field="*{id}" placeholder="Teacher ID" class="form-control mb-4 col-4">-->
+
         <input type="text" th:field="*{name}" placeholder="Teacher First Name" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{surname}" placeholder="Teacher Last Name" class="form-control mb-4 col-4">

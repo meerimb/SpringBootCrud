@@ -2,16 +2,17 @@ package com.peaksoft.SpringBootCrud.service;
 
 import com.peaksoft.SpringBootCrud.model.Student;
 import com.peaksoft.SpringBootCrud.repository.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService{
-    @Autowired
-    private StudentRepository studentRepository;
+
+    private final StudentRepository studentRepository;
 
     @Override
     public List<Student> getAllStudents() {

@@ -32,7 +32,7 @@ public class Group {
 
     @Override
     public String toString() {
-        return getGroupName();
+        return groupName;
     }
 }
 

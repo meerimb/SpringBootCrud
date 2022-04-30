@@ -8,5 +8,4 @@ public interface GroupService {
     void saveGroup(Group group);
     Group getGroupById(long id);
     void deleteGroupById(long id);
-//    Group update(Group group);
 }
